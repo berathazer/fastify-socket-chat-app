@@ -14,9 +14,12 @@ import messageRoutes from "../routes/message-routes";
 export async function buildServer(CORS_ORIGIN: string, PORT: number) {
     const app = fastify();
 
+
     //cors middleware
     await app.register(fastifyCors, {
-        origin: CORS_ORIGIN
+        methods: ["GET", "POST", "PUT", "DELETE"],
+        origin: "*",
+        credentials: true
     });
 
     //socket middleware
@@ -33,8 +36,6 @@ export async function buildServer(CORS_ORIGIN: string, PORT: number) {
 
 
     await app.register(socketRoutes, {})
-    await app.register(messageRoutes);
-
 
 
 

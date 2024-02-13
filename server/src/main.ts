@@ -19,6 +19,7 @@ export const subscriber = new Redis(UPSTASH_REDIS_REST_URL);
 
 
 async function main() {
+
     const app = await buildServer(CORS_ORIGIN, PORT);
 
     try {
