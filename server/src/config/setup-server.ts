@@ -5,11 +5,6 @@ import fastifyIO from "fastify-socket.io";
 import { publisher } from "../main";
 import { CONNECTION_COUNT_KEY } from "./constant";
 import socketRoutes from "../routes/socket-routes";
-import messageRoutes from "../routes/message-routes";
-
-
-
-
 
 export async function buildServer(CORS_ORIGIN: string, PORT: number) {
     const app = fastify();
@@ -18,7 +13,7 @@ export async function buildServer(CORS_ORIGIN: string, PORT: number) {
     //cors middleware
     await app.register(fastifyCors, {
         methods: ["GET", "POST", "PUT", "DELETE"],
-        origin: "*",
+        origin: CORS_ORIGIN,
         credentials: true
     });
 
