@@ -30,7 +30,7 @@ export async function buildServer(CORS_ORIGIN: string, PORT: number) {
 
 
 
-    await app.register(socketRoutes, {})
+    await app.register(socketRoutes)
 
 
 

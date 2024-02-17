@@ -8,7 +8,7 @@ import { randomUUID } from "crypto";
 
 
 
-export default async function socketRoutes(fastify: FastifyInstance, options: Record<string, unknown>) {
+export default async function socketRoutes(fastify: FastifyInstance) {
 
     fastify.io.on("connection", async (io) => {
         incrementConnectedClient();
